@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#1e88e5">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>Hava Durumu PWA</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="icons/icon-192.png">
+</head>
+<body>
+  <div id="offline-banner" class="offline-banner hidden">
+    ⚠️ İnternet bağlantınız yok. Lütfen bağlantınızı kontrol edin.
+  </div>
+
+  <header class="app-header">
+    <h1>🌤️ Hava Durumu</h1>
+    <button id="theme-toggle" class="theme-btn" title="Tema Değiştir">🌙</button>
+  </header>
+
+  <main class="container">
+    <section class="search-section">
+      <div class="search-row">
+        <input type="text" id="city-input" placeholder="Şehir adı girin (örn: İstanbul)" autocomplete="off">
+        <button id="search-btn" class="primary-btn">Ara</button>
+      </div>
+      <button id="location-btn" class="secondary-btn">📍 Konumumu Kullan</button>
+      <p id="error-msg" class="error hidden"></p>
+    </section>
+
+    <section id="weather-section" class="weather-section hidden">
+      <div class="current-weather">
+        <h2 id="city-name"></h2>
+        <div class="current-temp" id="current-temp"></div>
+        <div class="weather-desc" id="weather-desc"></div>
+        <div class="weather-extra">
+          <div class="extra-item">
+            <span class="label">💧 Nem</span>
+            <span id="humidity">--</span>
+          </div>
+          <div class="extra-item">
+            <span class="label">🌬️ Rüzgâr</span>
+            <span id="wind">--</span>
+          </div>
+        </div>
+      </div>
+
+      <h3>5 Günlük Tahmin</h3>
+      <div id="forecast" class="forecast"></div>
+
+      <p class="update-time">Son güncelleme: <span id="update-time"></span></p>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <p>Veri kaynağı: <a href="https://open-meteo.com" target="_blank">Open-Meteo</a></p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
